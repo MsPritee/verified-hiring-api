@@ -18,8 +18,7 @@ const conn = require('./db/conn');
 const app = express();
 const port = process.env.PORT || 5000;
 const secretKey = process.env.SECRET_KEY || 'default-secret-key';
-const backendUrl = process.env.BACKEND_URL || `http://localhost:${port}`;
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL || `http://localhost:${port}`;
 
 
 app.use(bodyParser.json());
@@ -27,15 +26,6 @@ app.use(bodyParser.json());
 app.use(cors({
     origin: "*"
 }));
-
-
-const users = [
-    {
-        id: 1,
-        username: 'user1',
-        password: '$2b$10$6bNK3lwYd2MhQQ5gWszNLef.ZRG6MWuR0DMY8SxHTskcaEUs/JyKS', // hashed password: 'password123'
-    },
-];
 
 
 // login endpoint
