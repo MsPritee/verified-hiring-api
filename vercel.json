@@ -3,14 +3,18 @@
     "name": "reminder-app",
     "builds": [
         {
-            "src": "*.js",
+            "src": "src/app.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "src/app.js",
+            "methods": ["  GET ", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+            "headers" : {
+                "Access-Control-Allow-Origin" : "*"
+            }
         }
     ]
 }
